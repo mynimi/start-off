@@ -30,12 +30,6 @@ blockquote{
     line-height: 2;
 }
 
-.shadow-hover{
-    img{
-        @include shadow(null, link);
-    }
-}
-
 p + {
     h1,
     h2,
