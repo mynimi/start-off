@@ -310,4 +310,20 @@ pre{
     .sticky {
         position: fixed;
     }
+    
+    .entry-content img,
+    .comment-content img,
+    .widget img {
+        max-width: 97.5%;
+    }
+    
+    img[class*="align"],
+    img[class*="wp-image-"] {
+        height: auto;
+    }
+    
+    img.size-full {
+        max-width: 97.5%;
+        width: auto;
+    }
 }
