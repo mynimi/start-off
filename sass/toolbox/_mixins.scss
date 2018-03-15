@@ -37,6 +37,32 @@
 }
 // @include flexbox(direction, wrap, justify, align)
 
+@mixin gridCreator($rows, $columns, $area-list, $arealayout...){
+    $a: "";
+    @each $area in $arealayout {
+        $a: $a + '"'+$area+'"';
+    }
+
+    display: grid;
+    $grid-template-rows: $rows;
+    grid-template-columns: $columns;
+    grid-template-areas: unquote($a);
+
+    @each $area in $area-list{
+        .#{$area}{
+            grid-area: $area;
+        }
+    }
+}
+// @include gridCreator(
+//     "auto auto auto", 
+//     "auto auto auto",
+//     (area-1, area-2, area-3, area-4, area-5, area-6),
+//     'area-1 area-2 area-3',
+//     'area-4 area-4 area-4',
+//     'area-5 area-6 area-6');
+
+
 @mixin rowMachine($n, $ms, $mb:$ms) {
     width: calc((100% - (#{$n} - 1) * #{$ms}) / #{$n});
     &:nth-of-type(n) {
